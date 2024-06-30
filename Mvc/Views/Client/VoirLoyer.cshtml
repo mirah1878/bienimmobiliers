@@ -1,0 +1,36 @@
+@{
+    Layout = "~/Views/Shared/Client.cshtml";
+}
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-6">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Filtre date</h5>
+
+              <!-- Browser Default Validation -->
+              <form asp-controller="Client" asp-action="VoirLoyerv">
+                <div class="col-md-6">
+                  <label for="validationDefault03" class="form-label">Date 1 :</label>
+                  <input type="date" class="form-control" name="date1" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="validationDefault03" class="form-label">Date 2 :</label>
+                  <input type="date" class="form-control" name="date2" required>
+                </div>
+                
+                <div class="col-12">
+                  <button class="btn btn-primary" type="submit">ok</button>
+                </div>
+              </form>
+              <!-- End Browser Default Validation -->
+
+            </div>
+          </div>
+
+        </div>
+        </div>
+    </div>
+</section>

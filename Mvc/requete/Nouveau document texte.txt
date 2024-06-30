@@ -1,0 +1,24 @@
+
+create view v_ptEtapeCategorie as
+select dense_rank() over (partition by idEtape,categorieCoureur.idCategorie order by duree) as rang,
+tempscoureur.idEtape,tempsCoureur.idcoureur,tempscoureur.duree,equipeCoureur.idEquipe,categorieCoureur.idCategorie from tempscoureur
+join equipeCoureur on equipeCoureur.idCoureur = tempsCoureur.idcoureur
+join categorieCoureur on categorieCoureur.idCoureur = tempsCoureur.idcoureur
+order by tempscoureur.idEtape,categorieCoureur.idCategorie,tempsCoureur.duree;
+
+create view v_classement as 
+select v_ptEtapeCategorie.rang,v_ptEtapeCategorie.idetape,v_ptEtapeCategorie.idcoureur,v_ptEtapeCategorie.duree,v_ptEtapeCategorie.idequipe,v_ptEtapeCategorie.idcategorie,coalesce(noteRang.pts,0) as pts 
+from v_ptEtapeCategorie
+left join noteRang on v_ptEtapeCategorie.rang = noteRang.rang
+order by v_ptEtapeCategorie.idEtape,v_ptEtapeCategorie.idCategorie,v_ptEtapeCategorie.rang;
+
+
+
+
+select equipe.idequipe,sum(pts),equipe.nom from v_classement
+            join equipe on equipe.idequipe = v_classement.idEquipe
+            where idcategorie = ".$idCategorie."
+            group by equipe.idequipe
+            order by sum desc
+
+
