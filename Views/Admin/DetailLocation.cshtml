@@ -1,0 +1,44 @@
+@{
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+
+          <div class="card">
+            <div class="card-body">
+                <table class="table table-bordered border-primary">
+                    <thead>
+                      <tr>
+                        <th scope="col">Client</th>
+                        <th scope="col">NomBien</th>
+                        <th scope="col">Commission</th>
+                        <th scope="col">Mois</th>
+                        <th scope="col">DateDebut</th>
+                        <th scope="col">FinDuMois</th>
+                        <th scope="col">Gain</th>
+                        <th scope="col">Loyer</th>
+                        <th scope="col">ChiffreAffaire</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    @foreach(var list in ViewBag.list){
+                      <tr>
+                        <th scope="row">@list.Email</th>
+                        <td>@list.NomBien</td>
+                        <td>@list.Commission</td>
+                        <td>@list.Mois</td>
+                        <td>@list.DateDebut</td>
+                        <td>@list.FinDuMois</td>
+                        <td>@list.Loyer</td>
+                        <td>@list.Gain</td>
+                        <td>@list.ChiffreAffaire</td>
+                      </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

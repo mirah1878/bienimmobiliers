@@ -18,6 +18,7 @@ public class AdminController : Controller
      private readonly Import csv;
      private readonly LocationRepository location;
      private readonly VChiffreAffaireRepository viewChiffreAffaire;
+     private readonly DetailLocationRepository detailLocation;
 
     public AdminController(
         ApplicationDbContext context,
@@ -27,6 +28,7 @@ public class AdminController : Controller
         BienRepository bi,
         LocationRepository loc,
         Import _csv,
+        DetailLocationRepository _detail,
         VChiffreAffaireRepository vha
         )
     {
@@ -38,6 +40,7 @@ public class AdminController : Controller
         bien = bi;
         location = loc;
         csv = _csv;
+        detailLocation = _detail;
     }
 
     public IActionResult Restore()
@@ -112,10 +115,17 @@ public class AdminController : Controller
             Duree = duree,
             DateDebut = date,
         };
-
         location.Add(addloc);
-        return RedirectToAction("Acceuil", "Admin"); 
+        
+        return RedirectToAction("DetailLocation", "Admin"); 
     }
+
+    public IActionResult DetailLocation()
+    {   
+        ViewBag.list = detailLocation.FindAll();
+        return View();
+    }
+    
     
     public IActionResult PageAjoutLocation()
     {   
@@ -130,8 +140,8 @@ public class AdminController : Controller
         }
         ViewBag.date1 = date1.ToString("dd/MM/yyyy");
         ViewBag.date2 = date2.ToString("dd/MM/yyyy");
-        ViewBag.Gain = viewChiffreAffaire.Gain(date1,date2);
-        ViewBag.Affaire = viewChiffreAffaire.Affaire(date1,date2);
+        ViewBag.Affaire = viewChiffreAffaire.ChiffreAffaireAdminFiltre(date1,date2);
+        ViewBag.Gain = viewChiffreAffaire.GainAdminFiltre(date1,date2);
             return View();
     }
     public IActionResult ListeChiffre()

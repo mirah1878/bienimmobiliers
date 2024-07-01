@@ -2,20 +2,20 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-[Table("view_chiffre_affaire")]
-public class ViewChiffreAffaire
+[Table("view_ca")]
+public class Viewca
 {
     [Column("id_bien")]
     public string? IdBien { get; set; }
 
-    [Column("nom")]
-    public string? Nom { get; set; }
+    [Column("nom_bien")]
+    public string? NomBien { get; set; }
 
     [Column("description")]
     public string? Description { get; set; }
 
     [Column("loyer")]
-    public double Loyer { get; set; }
+    public double? Loyer { get; set; }
 
     [Column("id_proprietaire")]
     public string? IdProprietaire { get; set; }
@@ -30,16 +30,16 @@ public class ViewChiffreAffaire
     public string? Telephone { get; set; }
 
     [Column("nom_region")]
-    public string? Nomregion { get; set; }
+    public string? NomRegion { get; set; }
 
     [Column("nom_type_bien")]
-    public string? Nomtypebien { get; set; }
+    public string? NomTypeBien { get; set; }
 
     [Column("commission")]
-    public string? Commission { get; set; }
+    public double? Commission { get; set; }
 
     [Column("duree")]
-    public int? Duree { get; set; }
+    public int Duree { get; set; }
 
     [Column("date_debut")]
     public DateTime DateDebut { get; set; }
@@ -51,22 +51,29 @@ public class ViewChiffreAffaire
     public string? Email { get; set; }
 
     [Column("chiffre_affaire")]
-    public double ChiffreAffaire { get; set; }
+    public double? ChiffreAffaireTotal { get; set; }
 
     [Column("gain")]
-    public double Gain { get; set; }
+    public double? Gain { get; set; }
 
-    [Column("gain_par_moi")]
-    public double Gainparmoi { get; set; }
-    
+    [Column("gain_par_mois")]
+    public double? GainParMois { get; set; }
+
     [Column("mois")]
     public int Mois { get; set; }
+
+    [Column("fin_du_mois")]
+    public DateTime FinDuMois { get; set; }
 
     [Column("mois_loyer")]
     public DateTime MoisLoyer { get; set; }
 
-    [Column("fin_du_mois")]
-    public DateTime FinduMoi { get; set; }
+    [Column("loyer_payer")]
+    public double? LoyerPayer { get; set; }
 
+    [Column("commission_pourcentage")]
+    public double? CommissionPourcentage { get; set; }
 
+    [Column("valeur_commission")]
+    public double? ValeurCommission { get; set; }
 }

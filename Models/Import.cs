@@ -89,7 +89,7 @@ public class Import
                 // type
                 _dbContext.Database.ExecuteSqlRaw(@"
                     INSERT INTO type_de_bien(nom, commission) 
-                    SELECT DISTINCT type, commission FROM commission_temporaire");
+                    SELECT DISTINCT (type), commission FROM commission_temporaire");
                                       
     
                 transaction.Commit(); // Commit la transaction
@@ -125,7 +125,7 @@ public class Import
                                             
                 _dbContext.Database.ExecuteSqlRaw(@"
                     INSERT INTO bien (reference,nom,description,loyer,id_type_de_bien,id_proprietaire,id_region)
-                    SELECT DISTINCT 
+                    SELECT 
                         tm.reference,
                         tm.nom,
                         tm.description,
@@ -171,7 +171,7 @@ public class Import
 
                 _dbContext.Database.ExecuteSqlRaw(@"
                     INSERT INTO location (id_bien, id_client, duree, date_debut)
-                        SELECT DISTINCT
+                        SELECT 
                             bi.id,
                             cl.id,
                             tm.duree_mois,

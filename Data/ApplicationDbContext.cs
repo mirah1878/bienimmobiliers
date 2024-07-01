@@ -14,6 +14,8 @@ public class ApplicationDbContext : DbContext
     public DbSet<Location> _location { get; set; }
     public DbSet<Photo> _photo { get; set; }
     public DbSet<ViewChiffreAffaire> _vchiffaffaire { get; set; }
+    public DbSet<Viewca> _viewca { get; set; }
+    public DbSet<DetailLocation> _detail { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -53,6 +55,8 @@ public class ApplicationDbContext : DbContext
             .HasDefaultValueSql($"NEXT VALUE FOR photo_seq");
     
         modelBuilder.Entity<ViewChiffreAffaire>().HasNoKey();
+        modelBuilder.Entity<Viewca>().HasNoKey();
+        modelBuilder.Entity<DetailLocation>().HasNoKey();
             
     }
 }

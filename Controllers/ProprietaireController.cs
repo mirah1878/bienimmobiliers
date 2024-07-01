@@ -45,7 +45,7 @@ public class ProprietaireController : Controller
         ViewBag.date1 = date1.ToString("dd/MM/yyyy");
         ViewBag.date2 = date2.ToString("dd/MM/yyyy");
         
-        ViewBag.list = viewChiffreAffaire.ChiffreAffairePro(date1,date2,userId);
+        ViewBag.affaire = viewChiffreAffaire.ChiffreAffaireProFiltre(date1,date2,userId);
             return View();
     }
     public IActionResult ListeChiffre()
