@@ -9,11 +9,9 @@ public class Location
     [Column("id")]
     public string? Id { get; set; }
 
-    [ForeignKey("Bien")]
     [Column("id_bien")]
     public string? IdBien { get; set; }
 
-    [ForeignKey("Client")]
     [Column("id_client")]
     public string? IdClient { get; set; }
 

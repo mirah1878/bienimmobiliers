@@ -15,7 +15,7 @@ public class ViewChiffreAffaire
     public string? Description { get; set; }
 
     [Column("loyer")]
-    public double? Loyer { get; set; }
+    public double Loyer { get; set; }
 
     [Column("id_proprietaire")]
     public string? IdProprietaire { get; set; }

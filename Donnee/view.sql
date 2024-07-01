@@ -33,3 +33,50 @@ CREATE OR REPLACE VIEW view_chiffre_affaire AS
     FROM location AS l
         LEFT JOIN view_proprietaire_bien vpb ON l.id_bien = vpb.id_bien
         LEFT JOIN client c ON l.id_client = c.id;
+
+
+    SELECT
+        id_client,loyer,date_debut,duree,chiffre_affaire from view_chiffre_affaire 
+        where date_debut >= '2024-06-07' and date_debut <= '2024-12-30';
+
+
+    SELECT
+        id_client,
+        loyer,
+        date_debut,
+        duree,
+        chiffre_affaire,
+        (DATE_PART('year', '2024-01-30'::date) * 12 + DATE_PART('month', '2024-01-30'::date)) - (DATE_PART('year', '2024-2-01'::date) * 12 + DATE_PART('month', '2024-02-01'::date)) AS countMonth
+    FROM
+        view_chiffre_affaire
+    WHERE
+        date_debut >= '2024-06-07' 
+        AND date_debut <= '2024-12-30';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SELECT
+    id_client,
+    loyer,
+    date_debut,
+    duree,
+    chiffre_affaire,
+    (DATE_PART('year', age('2024-02-01'::date, '2024-01-31'::date)) * 12 +
+     DATE_PART('month', age('2024-02-01'::date, '2024-01-31'::date)) + 1) AS countMonth
+FROM
+    view_chiffre_affaire
+
+    

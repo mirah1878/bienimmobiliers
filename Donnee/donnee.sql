@@ -31,9 +31,9 @@ INSERT INTO region (nom) VALUES
 ('Ouest');
 
 -- Insertion de données dans la table bien
-INSERT INTO bien (nom, description, loyer, id_proprietaire, id_region, id_type_de_bien) VALUES
-('Maison du Lac', 'Maison spacieuse avec vue sur le lac', 600000, 'PRO001', 'REG001', 'TYP001'),
-('Appartement Centre', 'Appartement moderne en centre-ville', 800000, 'PRO002', 'REG002', 'TYP002');
+INSERT INTO bien (nom, reference,description, loyer, id_proprietaire, id_region, id_type_de_bien) VALUES
+('Maison du Lac','j00', 'Maison spacieuse avec vue sur le lac', 600000, 'PRO001', 'REG001', 'TYP001'),
+('Appartement Centre','o212', 'Appartement moderne en centre-ville', 800000, 'PRO002', 'REG002', 'TYP002');
 
 -- Insertion de données dans la table photo
 INSERT INTO photo (nom, id_bien) VALUES

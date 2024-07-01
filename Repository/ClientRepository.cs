@@ -12,15 +12,13 @@ public class ClientRepository
         _context = context;
     }
 
-    public int getnbmonths(DateTime startDate, DateTime endDate, string? id)
-    {
-        startDate = startDate.ToUniversalTime();
-        endDate = endDate.ToUniversalTime();
-        int months = GetNumberOfMonthsInclusive(startDate, endDate);
+    public double Nonpaye(DateTime startDate, DateTime endDate, string? idclient){
 
-        return months;
+        return 0.0;
     }
-    public double paye(DateTime startDate, DateTime endDate, string? id)
+
+
+    public double Paye(DateTime startDate, DateTime endDate, string? id)
     {
         startDate = startDate.ToUniversalTime();
         endDate = endDate.ToUniversalTime();
@@ -32,10 +30,26 @@ public class ClientRepository
 
         return queryResult;
     }
-
-    static int GetNumberOfMonthsInclusive(DateTime startDate, DateTime endDate)
+    public double NonPaye(DateTime startDate, DateTime endDate, string? id,int mois)
     {
-        // Ensure startDate is less than or equal to endDate
+        startDate = startDate.ToUniversalTime();
+        endDate = endDate.ToUniversalTime();
+
+        List<double> queryResult = _context._vchiffaffaire
+            .Where(v => v.DateDebut >= startDate && v.DateDebut <= endDate && v.IdClient == id )
+            .Select(v => v.Loyer * mois).ToList();
+            double somme = 0;
+        foreach (var item in queryResult)
+        {
+            somme +=item;
+            Console.WriteLine(item);
+        }
+
+        return somme;
+    }
+
+    public int GetNumberOfMonthsInclusive(DateTime startDate, DateTime endDate)
+    {
         if (startDate > endDate)
         {
             throw new ArgumentException("La date de début doit être antérieure ou égale à la date de fin.");
@@ -52,9 +66,9 @@ public class ClientRepository
         
         return numberOfMonths;
     }
-    private DateTime datemin(DateTime startDate, DateTime endDate, string? id){
+    public DateTime DateMax(DateTime startDate, DateTime endDate, string? id){
         DateTime date = _context._vchiffaffaire
-            .OrderBy(v => v.DateDebut)
+            .OrderByDescending(v => v.DateDebut)
             .Where(v => v.DateDebut >= startDate && v.DateDebut <= endDate && v.IdClient == id )
             .Select(v => v.DateDebut)
             .FirstOrDefault();

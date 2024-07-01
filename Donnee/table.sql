@@ -37,6 +37,7 @@ DROP DATABASE IF EXISTS mada_immo;
     CREATE SEQUENCE bien_seq;
     CREATE TABLE IF NOT EXISTS bien (
         id VARCHAR PRIMARY KEY DEFAULT CONCAT('BIEN', LPAD(nextval('bien_seq')::TEXT, 3, '0')),
+        reference VARCHAR,
         nom VARCHAR NOT NULL,
         description TEXT NOT NULL,
         loyer NUMERIC NOT NULL,
@@ -58,4 +59,26 @@ DROP DATABASE IF EXISTS mada_immo;
         id_client VARCHAR NOT NULL REFERENCES client(id),
         duree INT NOT NULL, 
         date_debut DATE NOT NULL
+    );
+
+    CREATE TABLE IF NOT EXISTS bien_temporaire(
+        reference VARCHAR,
+        nom VARCHAR,
+        description VARCHAR,
+        type VARCHAR,
+        region VARCHAR,
+        loyer_mensuel NUMERIC,
+        proprietaire VARCHAR
+    );
+
+    CREATE TABLE IF NOT EXISTS location_temporaire(
+        reference VARCHAR,
+        date_debut DATE,
+        duree_mois INT,
+        client VARCHAR
+    );
+
+    CREATE TABLE IF NOT EXISTS commission_temporaire(
+        type VARCHAR,
+        commission NUMERIC
     );

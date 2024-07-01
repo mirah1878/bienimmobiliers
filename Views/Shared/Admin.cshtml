@@ -235,7 +235,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+              <a class="dropdown-item d-flex align-items-center" asp-controller="Admin" asp-action="Restore">
                 <i class="bi bi-gear"></i>
                 <span>Account Settings</span>
               </a>
@@ -286,7 +286,35 @@
           <i class="bi bi-card-list"></i>
           <span>Chiffre d'Affaire</span>
         </a>
-      </li><!-- End Register Page Nav -->
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" asp-controller="Admin" asp-action="PageAjoutLocation">
+          <i class="bi bi-card-list"></i>
+          <span>Nouvelle Location</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" asp-controller="Admin" asp-action="PageImportLocation">
+          <i class="bi bi-card-list"></i>
+          <span>Import location</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" asp-controller="Admin" asp-action="PageImportBien">
+          <i class="bi bi-card-list"></i>
+          <span>Import Bien</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" asp-controller="Admin" asp-action="PageImportType">
+          <i class="bi bi-card-list"></i>
+          <span>Import Commission</span>
+        </a>
+      </li>
     </ul>
 
   </aside><!-- End Sidebar-->

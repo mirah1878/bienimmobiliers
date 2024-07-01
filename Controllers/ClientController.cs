@@ -26,9 +26,17 @@ public class ClientController : Controller
     }
     public IActionResult VoirLoyerv(DateTime date1,DateTime date2)
     {
-        string? userId = HttpContext.Session.GetString("Id"); 
-        ViewBag.list = client.paye(date1,date2,userId);
-        return Ok($"{ViewBag.list }");
+        string? userId = "CLI002"; 
+        //string? userId = HttpContext.Session.GetString("Id"); 
+        date1 = date1.ToUniversalTime();
+        date2 = date2.ToUniversalTime();
+        ViewBag.paye = client.Paye(date1,date2,userId);
+        DateTime max = client.DateMax(date1,date2,userId);
+        int numberMonthTotal = client.GetNumberOfMonthsInclusive(date1,date2);
+        int numberMonthReste = client.GetNumberOfMonthsInclusive(max,date2);
+        double loyer =  client.Paye(date1,date2,userId);
+        double loyerNon =  client.NonPaye(date1,date2,userId,2);
+        return Ok($"Max date:{max} / Nombre mois:{numberMonthTotal} / Reste mois:{numberMonthReste} / Loyer payer:{loyer} / Loyer non paye:{loyerNon}");
     }
     
 

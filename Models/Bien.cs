@@ -9,6 +9,9 @@ public class Bien
     [Column("id")]
     public string? Id { get; set; }
 
+    [Column("reference")]
+    public string? Reference { get; set; }
+
     [Column("nom")]
     public string? Nom { get; set; }
 

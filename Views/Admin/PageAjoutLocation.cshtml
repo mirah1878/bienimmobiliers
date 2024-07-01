@@ -1,0 +1,57 @@
+@{
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Floating labels Form</h5>
+                        <form class="row g-3" asp-controller="Admin" asp-action="AjoutLocation">
+                            <div class="col-md-6">
+                              <div class="form-floating mb-3">
+                                    <select class="form-select" id="floatingSelect" aria-label="bien" name="bien">
+                                        @foreach(var bien in ViewBag.bien){
+                                              <option value="@bien.Id">@bien.Nom</option>
+                                        }
+                                    </select>
+                                <label for="floatingSelect">bien</label>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-floating mb-3">
+                                <select class="form-select" id="floatingSelect" aria-label="bien" name="client">
+                                    @foreach(var client in ViewBag.client){
+                                          <option value="@client.Id">@client.Email</option>
+                                    }
+                                </select>
+                                <label for="floatingSelect">client</label>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-floating">
+                                <input type="number" class="form-control" id="floatingPassword" name="duree">
+                                <label for="floatingPassword">Duree</label>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="col-md-12">
+                                <div class="form-floating">
+                                  <input type="date" class="form-control" id="floatingCity" name="date">
+                                  <label for="floatingCity">Date debut</label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-2">
+                              <div class="form-floating">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                              </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
