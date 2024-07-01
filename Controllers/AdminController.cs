@@ -43,7 +43,7 @@ public class AdminController : Controller
     public IActionResult Restore()
     {
         _context.Database.ExecuteSqlRaw(@"TRUNCATE TABLE client,proprietaire,
-            type_de_bien,region,bien,photo,location cascade");
+            type_de_bien,region,bien,photo,location,bien_temporaire,location_temporaire,commission_temporaire cascade");
         return RedirectToAction("Index", "Admin");
     }
 

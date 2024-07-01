@@ -124,14 +124,15 @@ public class Import
                     
                                             
                 _dbContext.Database.ExecuteSqlRaw(@"
-                    INSERT INTO bien (reference,nom,description,id_proprietaire,id_region,id_type_de_bien)
+                    INSERT INTO bien (reference,nom,description,loyer,id_type_de_bien,id_proprietaire,id_region)
                     SELECT DISTINCT 
                         tm.reference,
                         tm.nom,
                         tm.description,
+                        tm.loyer_mensuel,
+                        ty.id,
                         pr.id,
-                        re.id,
-                        ty.id
+                        re.id
                     FROM 
                         bien_temporaire tm
                     JOIN 
@@ -169,18 +170,19 @@ public class Import
                     FROM location_temporaire");
 
                 _dbContext.Database.ExecuteSqlRaw(@"
-                    INSERT INTO location (id_bien,id_client,duree,date_debut)
-                    SELECT DISTINCT 
-                        bi.reference,
-                        cl.id,
-                        tm.duree_mois,
-                        tm.date_debut
-                    FROM 
-                        location_temporaire tm
-                    JOIN 
-                        bien bi ON tm.reference = bi.reference
-                    JOIN 
-                        client cl ON tm.client = cl.email"
+                    INSERT INTO location (id_bien, id_client, duree, date_debut)
+                        SELECT DISTINCT
+                            bi.id,
+                            cl.id,
+                            tm.duree_mois,
+                            tm.date_debut
+                        FROM
+                            location_temporaire tm
+                        JOIN
+                            bien bi ON tm.reference = bi.reference
+                        JOIN
+                            client cl ON tm.client = cl.email;
+                        "
                     );
 
                 

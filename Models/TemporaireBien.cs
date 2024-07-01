@@ -35,7 +35,7 @@ public class TemporaireBien
             Reference = csv.GetField<string>("reference"),
             Nom = csv.GetField<string>("nom"),
             Description = csv.GetField<string>("Description"),
-            Type = csv.GetField<string>("type"),
+            Type = csv.GetField<string>("Type"),
             Region = csv.GetField<string>("region"),
             LoyerMensuel = csv.GetField<double>("loyer mensuel"),
             Proprietaire = csv.GetField<string>("Proprietaire")
