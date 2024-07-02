@@ -15,6 +15,7 @@ public class ProprietaireController : Controller
      private readonly BienRepository bien;
      private readonly RegionRepository region;
      private readonly TypebienRepository typebien;
+     private readonly ViewBienRepository vbien;
      private readonly VChiffreAffaireRepository viewChiffreAffaire;
 
     public ProprietaireController(
@@ -25,6 +26,7 @@ public class ProprietaireController : Controller
         BienRepository bn,
         RegionRepository reg,
         TypebienRepository ty,
+        ViewBienRepository vb,
         VChiffreAffaireRepository vha
         )
     {
@@ -35,6 +37,7 @@ public class ProprietaireController : Controller
         bien = bn;
         region = reg;
         typebien = ty;
+        vbien = vb;
         viewChiffreAffaire = vha;
     }
 
@@ -57,7 +60,7 @@ public class ProprietaireController : Controller
     {
         string? userId = HttpContext.Session.GetString("Id");   
         Console.WriteLine("user : "+userId);
-        ViewBag.liste = bien.GetByProprietaireId(userId);
+        ViewBag.liste = vbien.GetById(userId);
         ViewBag.photo = photoRepository.FindAll();
         ViewBag.region = region.FindAll();
         ViewBag.type = typebien.FindAll();

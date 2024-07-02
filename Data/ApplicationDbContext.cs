@@ -16,6 +16,8 @@ public class ApplicationDbContext : DbContext
     public DbSet<ViewChiffreAffaire> _vchiffaffaire { get; set; }
     public DbSet<Viewca> _viewca { get; set; }
     public DbSet<DetailLocation> _detail { get; set; }
+    public DbSet<ViewListBien> _vlist { get; set; }
+    public DbSet<ViewPaye> _vloyer { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -57,6 +59,8 @@ public class ApplicationDbContext : DbContext
         modelBuilder.Entity<ViewChiffreAffaire>().HasNoKey();
         modelBuilder.Entity<Viewca>().HasNoKey();
         modelBuilder.Entity<DetailLocation>().HasNoKey();
+        modelBuilder.Entity<ViewListBien>().HasNoKey();
+        modelBuilder.Entity<ViewPaye>().HasNoKey();
             
     }
 }

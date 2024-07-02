@@ -12,24 +12,10 @@ public class ViewcaRepository
         _context = context;
     }
 
-    public Photo? GetById(string? idbien)
+    public List<Viewca> FindAll()
     {
-        return _context._photo.FirstOrDefault(v => v.IdBien== idbien);
-    }
-    public List<Photo> FindAll()
-    {
-        return _context._photo?.ToList()?? new List<Photo>();
+        return _context._viewca?.ToList()?? new List<Viewca>();
     }
 
-    public void Add(Photo photo)
-    {
-        if (photo == null)
-        {
-            throw new ArgumentNullException(nameof(photo));
-        }
-
-        _context._photo.Add(photo);
-        _context.SaveChanges();
-    }
 
 }

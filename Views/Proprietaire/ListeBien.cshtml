@@ -5,24 +5,16 @@
 <section class="section">
     <div class="row">
       @foreach(var list in  ViewBag.liste){
-        <div class="col-lg-6">
+        <div class="col-lg-8">
           <div class="card">
-              <div class="card mb-3">
                   <div class="row g-0">
-                    @foreach(var photo in ViewBag.photo){
-                      @if(list.Id == photo.IdBien){
-                      <div class="col-md-4">
-                          <img src="~/assets/img/@photo.Nom" class="img-fluid rounded-start" alt="...">
-                      </div>
-                        }
-                    }
                     <div class="col-md-8">
                       <div class="card-body">
-                        <h5 class="card-title">@list.Nom <span>, @list.Loyer.ToString("N0") Ar/mois</span></h5>
-                        <p class="card-text">@list.Description</p>
+                        <h5 class="card-title">@list.NomBien <span style="color: red;">Redispo  @list.DateFin</span> <br>
+                        <span>@list.Loyer.ToString("N0") Ar/mois</span></h5>
+                        <p class="card-text">@list.DescriptionBien</p>
                       </div>
                     </div>
-                  </div>
               </div>
           </div>
         </div>

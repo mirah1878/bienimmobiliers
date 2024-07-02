@@ -2,52 +2,40 @@
     Layout = "~/Views/Shared/Client.cshtml";
 }
 
-<section class="section dashboard">
+<section class="section">
     <div class="row">
-        <div class="card">
-            <div class="card-body">
-                <br>
-              <h5 class="card-title"><span> Période du </span> sds<span> au </span>  s</h5>
-            </div>
-          </div>
         <div class="col-lg-12">
-            <div class="row">
-                <div class="col-xxl-6 col-md-6">
-                    <div class="card info-card revenue-card">
-                        <div class="card-body">
-                            <h5 class="card-title">Chiffre d'affaire</span></h5>
-                            <div class="d-flex align-items-center">
-                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                    <i class="bi bi-currency-exchange"></i>
-                                </div>
-                                <div class="ps-3">
-                                    <h6> @ViewBag.list[0].ToString("N0") Ar</h6>
-                                    <span class="text-success small pt-1 fw-bold">8%</span> 
-                                    <span class="text-muted small pt-2 ps-1">increase</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- End Revenue Card -->
 
-                <!-- Customers Card -->
-                <div class="col-xxl-6 col-md-6">
-                    <div class="card info-card revenue-card">
-                        <div class="card-body">
-                            <h5 class="card-title">Gains </h5>
-                            <div class="d-flex align-items-center">
-                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                    <i class="bi bi-currency-exchange"></i>
-                                </div>
-                                <div class="ps-3">
-                                    <h6>@ViewBag.list[1].ToString("N0") Ar</h6>
-                                    <span class="text-success small pt-1 fw-bold">8%</span> 
-                                    <span class="text-muted small pt-2 ps-1">increase</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <div class="card">
+            <div class="card-body">
+                <table class="table table-bordered border-primary">
+                    <thead>
+                      <tr>
+                        <th scope="col">Bien</th>
+                        <th scope="col">date_debut</th>
+                        <th scope="col">date fin </th>
+                        <th scope="col"> </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    @foreach(var list in ViewBag.list){
+                      <tr>
+                        @foreach(var bien in ViewBag.bien){
+                            @if(list.IdBien == bien.Id){
+                                <td>@bien.Nom</td>
+                            }
+                        }
+                        <td>@list.DateDebut.ToShortDateString()</td>
+                        <td>@list.FinDuMois.ToShortDateString()</td>
+                        @if(list.Paye == 0){
+                            <th scope="row" style="color: red;"> à payer </th>
+                        }else if(list.Paye == 1){
+                            <th scope="row"> payé </th>
+                        }
+                      </tr>
+                    }
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

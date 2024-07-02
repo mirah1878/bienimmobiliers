@@ -48,3 +48,36 @@ SELECT
     FROM view_chiffre_affaire as vl;
 
 
+CREATE OR REPLACE VIEW view_list_bien AS
+SELECT 
+    bi.nom AS nom_bien,
+    pr.id AS id_proprietaire,
+    bi.description AS description_bien,
+    bi.loyer,
+    DATE(l.date_debut + (l.duree || ' months')::interval) AS date_fin
+FROM 
+    bien bi
+JOIN 
+    location l ON bi.id = l.id_bien
+JOIN 
+    proprietaire pr ON pr.id = bi.id_proprietaire;
+
+
+
+CREATE OR REPLACE VIEW v_chiffre_affaire AS
+    SELECT 
+        vl.id_bien, vl.id_client, vl.date_debut, vl.duree, vl.mois, vl.fin_mois,
+        CASE WHEN vl.mois = 1 THEN (vl.loyer * 2) ELSE vl.loyer END AS loyer_payer,
+        CASE WHEN vl.mois = 1 THEN (50.0)::NUMERIC ELSE vl.commission END AS commission_pourcentage,
+        CASE WHEN vl.mois = 1 THEN ((vl.loyer * 2) * 50)/100 ELSE (vl.loyer * vl.commission)/100 END AS valeur_commission 
+    FROM v_location as vl;
+
+
+
+CREATE OR REPLACE VIEW view_paye AS
+SELECT
+    vl.id_bien, vl.id_client, vl.date_debut, vl.duree, vl.mois, vl.fin_du_mois,
+    CASE WHEN fin_du_mois <= (DATE_TRUNC('month', now()) + interval '1 month - 1 day') THEN 1 ELSE 0 END AS paye
+FROM view_ca vl
+
+

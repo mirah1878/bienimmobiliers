@@ -13,30 +13,32 @@ public class ClientController : Controller
     private readonly ILogger<ClientController> _logger;
     private readonly ApplicationDbContext _context;
      private readonly ClientRepository client;
+     private readonly ViewpayeRepository viewpaye;
+     private readonly BienRepository bien;
 
     public ClientController(
         ApplicationDbContext context,
         ILogger<ClientController> logger,
-        ClientRepository cl
+        ClientRepository cl,
+        ViewpayeRepository vp,
+        BienRepository bn
         )
     {
         _logger = logger;
         _context = context;
         client = cl;
+        viewpaye = vp;
+        bien = bn;
     }
     public IActionResult VoirLoyerv(DateTime date1,DateTime date2)
     {
-        string? userId = "CLI002"; 
-        //string? userId = HttpContext.Session.GetString("Id"); 
+        string? userId = HttpContext.Session.GetString("Id"); 
+        Console.WriteLine("user: ",userId);
         date1 = date1.ToUniversalTime();
         date2 = date2.ToUniversalTime();
-        ViewBag.paye = client.Paye(date1,date2,userId);
-        DateTime max = client.DateMax(date1,date2,userId);
-        int numberMonthTotal = client.GetNumberOfMonthsInclusive(date1,date2);
-        int numberMonthReste = client.GetNumberOfMonthsInclusive(max,date2);
-        double loyer =  client.Paye(date1,date2,userId);
-        double loyerNon =  client.NonPaye(date1,date2,userId,2);
-        return Ok($"Max date:{max} / Nombre mois:{numberMonthTotal} / Reste mois:{numberMonthReste} / Loyer payer:{loyer} / Loyer non paye:{loyerNon}");
+        ViewBag.list = viewpaye.ListLoyer(date1,date2,userId);
+        ViewBag.bien = bien.FindAll();
+        return View();
     }
     
 
