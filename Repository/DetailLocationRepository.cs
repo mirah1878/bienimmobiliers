@@ -12,6 +12,11 @@ public class DetailLocationRepository
         _context = context;
     }
 
+    public IEnumerable<DetailLocation> GetById(string? idlocation)
+    {
+        return _context._detail.Where(v => v.Idlocation == idlocation).ToList();
+    }
+
     public List<DetailLocation> FindAll()
     {
         return _context._detail?.ToList()?? new List<DetailLocation>();

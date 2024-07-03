@@ -22,12 +22,14 @@ CREATE OR REPLACE VIEW view_chiffre_affaire AS
     SELECT 
         vpb.*,
         l.duree,
+        l.id AS idlocation,
         l.date_debut,
         c.id AS id_client,
         c.email,
         vpb.loyer * l.duree AS chiffre_affaire,
         ROUND((vpb.loyer * l.duree) * (vpb.commission / 100), 2) AS gain,
         ROUND((vpb.loyer * (vpb.commission / 100)), 2) AS gain_par_mois,
+        ROUND((vpb.loyer-vpb.loyer * (vpb.commission / 100)), 2) AS gain_proprietaire,
         DENSE_RANK() OVER(PARTITION BY vpb.id_bien, c.id ORDER BY ((date_trunc('month', (l.date_debut + (i || ' month')::interval)) + INTERVAL '1 month - 1 day')::date))::INTEGER AS mois,
         (date_trunc('month', (l.date_debut + (i || ' month')::interval)) + INTERVAL '1 month - 1 day')::date AS fin_du_mois,
         date_trunc('month', (l.date_debut + (i || ' month')::interval))::date AS mois_loyer
@@ -37,7 +39,7 @@ CREATE OR REPLACE VIEW view_chiffre_affaire AS
         CROSS JOIN generate_series(0, l.duree - 1) AS i;
 
 CREATE OR REPLACE VIEW view_detail_location AS
-    SELECT nom_bien , commission, mois,date_debut,fin_du_mois,loyer, gain,chiffre_affaire,email from view_chiffre_affaire;
+    SELECT nom_bien , commission, mois,date_debut,fin_du_mois,loyer, gain,chiffre_affaire,email,idlocation from view_chiffre_affaire;
 
 CREATE OR REPLACE VIEW view_ca AS
 SELECT 
@@ -63,21 +65,14 @@ JOIN
     proprietaire pr ON pr.id = bi.id_proprietaire;
 
 
-
-CREATE OR REPLACE VIEW v_chiffre_affaire AS
-    SELECT 
-        vl.id_bien, vl.id_client, vl.date_debut, vl.duree, vl.mois, vl.fin_mois,
-        CASE WHEN vl.mois = 1 THEN (vl.loyer * 2) ELSE vl.loyer END AS loyer_payer,
-        CASE WHEN vl.mois = 1 THEN (50.0)::NUMERIC ELSE vl.commission END AS commission_pourcentage,
-        CASE WHEN vl.mois = 1 THEN ((vl.loyer * 2) * 50)/100 ELSE (vl.loyer * vl.commission)/100 END AS valeur_commission 
-    FROM v_location as vl;
-
-
-
 CREATE OR REPLACE VIEW view_paye AS
 SELECT
-    vl.id_bien, vl.id_client, vl.date_debut, vl.duree, vl.mois, vl.fin_du_mois,
-    CASE WHEN fin_du_mois <= (DATE_TRUNC('month', now()) + interval '1 month - 1 day') THEN 1 ELSE 0 END AS paye
-FROM view_ca vl
-
-
+    vl.id_bien,
+    vl.id_client,
+    vl.date_debut,
+    vl.duree,
+    vl.mois,
+    vl.fin_du_mois,
+    vl.loyer_payer as loyer,
+    CASE WHEN vl.fin_du_mois <= (DATE_TRUNC('month', now()) + interval '1 month - 1 day') THEN 1 ELSE 0 END AS paye
+FROM view_ca vl;

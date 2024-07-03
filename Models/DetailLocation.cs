@@ -10,7 +10,9 @@ public class DetailLocation
 
     [Column("commission")]
     public double? Commission { get; set; }
-
+    [Column("idlocation")]
+    public string? Idlocation { get; set; }
+    
     [Column("mois")]
     public int Mois { get; set; }
 

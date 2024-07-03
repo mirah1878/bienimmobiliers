@@ -14,6 +14,9 @@ public class ViewChiffreAffaire
     [Column("description")]
     public string? Description { get; set; }
 
+    [Column("idlocation")]
+    public string? Idlocation { get; set; }
+
     [Column("loyer")]
     public double Loyer { get; set; }
 
@@ -55,9 +58,14 @@ public class ViewChiffreAffaire
 
     [Column("gain")]
     public double Gain { get; set; }
+    
 
     [Column("gain_par_moi")]
     public double Gainparmoi { get; set; }
+
+    [Column("gain_proprietaire")]
+    public double Gainproprietaire { get; set; }
+    
     
     [Column("mois")]
     public int Mois { get; set; }

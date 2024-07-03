@@ -24,6 +24,28 @@ public class ViewpayeRepository
         return queryResult;
     }
 
+    public double GetSommeLoyersPayes(DateTime dateDebut, DateTime dateFin, string? idClient)
+    {
+        var listLoyers = ListLoyer(dateDebut, dateFin, idClient);
+
+        double sommeLoyersPayes = listLoyers
+            .Where(v => v.Paye == 1)
+            .Sum(v => v.Loyer);
+
+        return sommeLoyersPayes;
+    }
+
+    public double GetSommeLoyersnonPayes(DateTime dateDebut, DateTime dateFin, string? idClient)
+    {
+        var listLoyers = ListLoyer(dateDebut, dateFin, idClient);
+
+        double sommeLoyersPayes = listLoyers
+            .Where(v => v.Paye == 0)
+            .Sum(v => v.Loyer);
+
+        return sommeLoyersPayes;
+    }
+
 
 
     public List<ViewPaye> FindAll()

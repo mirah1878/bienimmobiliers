@@ -5,7 +5,17 @@
 <section class="section">
     <div class="row">
         <div class="col-lg-12">
+        <div class="card-body">
+        <div class="col-lg-8">
+          <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Paye : @(ViewBag.paye?.ToString("N0") ?? "0") Ar</h5>
+                <h5 class="card-title">NonPaye : @(ViewBag.npaye?.ToString("N0") ?? "0") Ar</h5>
 
+              <p class="card-text"></p>
+            </div>
+          </div>
+        </div>    
           <div class="card">
             <div class="card-body">
                 <table class="table table-bordered border-primary">

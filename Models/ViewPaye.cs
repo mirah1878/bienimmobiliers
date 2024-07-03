@@ -24,6 +24,9 @@ using System.ComponentModel.DataAnnotations.Schema;
         [Column("fin_du_mois")]
         public DateTime FinDuMois { get; set; }
 
+        [Column("loyer")]
+        public int Loyer { get; set; }
         [Column("paye")]
         public int Paye { get; set; }
     }
+

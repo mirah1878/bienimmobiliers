@@ -42,6 +42,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTGlzdGVDaGlmZnJldi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/S6/evaluation/Mvc/Views/Admin/ListeLocation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTGlzdGVMb2NhdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/S6/evaluation/Mvc/Views/Admin/PageAjoutLocation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGFnZUFqb3V0TG9jYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -56,6 +60,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/S6/evaluation/Mvc/Views/Admin/PageImportType.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGFnZUltcG9ydFR5cGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/S6/evaluation/Mvc/Views/Admin/VoirDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVm9pckRldGFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/S6/evaluation/Mvc/Views/Client/Acceuil.cshtml]

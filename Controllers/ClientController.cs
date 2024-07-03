@@ -33,10 +33,11 @@ public class ClientController : Controller
     public IActionResult VoirLoyerv(DateTime date1,DateTime date2)
     {
         string? userId = HttpContext.Session.GetString("Id"); 
-        Console.WriteLine("user: ",userId);
         date1 = date1.ToUniversalTime();
         date2 = date2.ToUniversalTime();
         ViewBag.list = viewpaye.ListLoyer(date1,date2,userId);
+        ViewBag.paye = viewpaye.GetSommeLoyersPayes(date1,date2,userId);
+        ViewBag.npaye = viewpaye.GetSommeLoyersnonPayes(date1,date2,userId);
         ViewBag.bien = bien.FindAll();
         return View();
     }
@@ -65,7 +66,7 @@ public class ClientController : Controller
     public IActionResult Login(string email)
     {
          string? userId = client.Authenticate(email);
-         Console.WriteLine("email:"+email);
+         Console.WriteLine("user:"+userId);
 
          if (!string.IsNullOrEmpty(userId))
             {
@@ -74,11 +75,6 @@ public class ClientController : Controller
             }
             else
             {
-                var add = new Client
-                {
-                    Email = email,
-                };
-                client.Add(add);
                 return RedirectToAction("Acceuil", "Client"); 
             }
     }

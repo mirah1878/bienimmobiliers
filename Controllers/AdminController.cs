@@ -43,6 +43,21 @@ public class AdminController : Controller
         detailLocation = _detail;
     }
 
+    public IActionResult ListeLocation()
+    {   
+        ViewBag.list = location.FindAll();
+        return View();
+    }
+
+    public IActionResult VoirDetail(string idlocation)
+    {   
+        ViewBag.list = detailLocation.GetById(idlocation);
+        Console.WriteLine(idlocation);
+        return View();
+    }
+    
+    
+
     public IActionResult Restore()
     {
         _context.Database.ExecuteSqlRaw(@"TRUNCATE TABLE client,proprietaire,

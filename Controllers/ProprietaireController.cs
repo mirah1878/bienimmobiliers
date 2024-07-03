@@ -83,12 +83,6 @@ public class ProprietaireController : Controller
             }
             else
             {
-                var add = new Proprietaire
-                {
-                    Tel = tel,
-                };
-
-                proprietaire.Add(add);
                 return RedirectToAction("Acceuil", "Proprietaire"); 
             }
     }

@@ -1,0 +1,61 @@
+@{
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+@{
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card-body">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-bordered border-primary">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Bien</th>
+                                    <th scope="col">Commission</th>
+                                    <th scope="col">Mois</th>
+                                    <th scope="col">DateDebut</th>
+                                    <th scope="col">FinDuMois</th>
+                                    <th scope="col">Loyer</th>
+                                    <th scope="col">Gain</th>
+                                    <th scope="col">ChiffreAffaire</th>    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach(var item in ViewBag.list)
+                                { 
+                                  if(item.FinDuMois <= DateTime.Now){
+                                  <tr class="table-danger">
+                                    <td>@item.NomBien</td>
+                                    <td>@item.Commission</td>
+                                    <td>@item.Mois</td>
+                                    <td>@item.DateDebut</td>
+                                    <td>@item.FinDuMois</td>  
+                                    <td>@item.Loyer</td>
+                                    <td>@item.Gain</td>
+                                    <td>@item.ChiffreAffaire</td>
+                                  </tr>
+                                  }else{
+                                    <tr class="table-success">
+                                    <td>@item.NomBien</td>
+                                    <td>@item.Commission</td>
+                                    <td>@item.Mois</td>
+                                    <td>@item.DateDebut</td>
+                                    <td>@item.FinDuMois</td>  
+                                    <td>@item.Loyer</td>
+                                    <td>@item.Gain</td>
+                                    <td>@item.ChiffreAffaire</td>
+                                  </tr>
+                                  }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
