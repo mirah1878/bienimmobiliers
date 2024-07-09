@@ -30,17 +30,24 @@ public class ClientController : Controller
         viewpaye = vp;
         bien = bn;
     }
-    public IActionResult VoirLoyerv(DateTime date1,DateTime date2)
+    public IActionResult VoirLoyerv(DateTime date1, DateTime date2, string userId)
     {
-        string? userId = HttpContext.Session.GetString("Id"); 
+        Console.WriteLine("tonga");
+        Console.WriteLine("use :"+userId);
         date1 = date1.ToUniversalTime();
         date2 = date2.ToUniversalTime();
-        ViewBag.list = viewpaye.ListLoyer(date1,date2,userId);
-        ViewBag.paye = viewpaye.GetSommeLoyersPayes(date1,date2,userId);
-        ViewBag.npaye = viewpaye.GetSommeLoyersnonPayes(date1,date2,userId);
+        Console.WriteLine("date1"+date1);
+        Console.WriteLine("date2"+date2);
+        
+        ViewBag.list = viewpaye.ListLoyer(date1, date2, userId);
+        ViewBag.paye = viewpaye.GetSommeLoyersPayes(date1, date2, userId);
+        ViewBag.npaye = viewpaye.GetSommeLoyersnonPayes(date1, date2, userId);
         ViewBag.bien = bien.FindAll();
-        return View();
+        
+        return View(); 
     }
+
+  
     
 
     public IActionResult VoirLoyer()
@@ -48,36 +55,27 @@ public class ClientController : Controller
         return View();
     }
 
-    
-
-    //public IActionResult Restore()
-    //{
-    //    _context.Database.ExecuteSqlRaw(@"TRUNCATE TABLE genre,cat,
-    //        courreur,etape,etapecoureur,courseetape,
-    //        points,pointcourreur,penalite,tempetape,tempresultat cascade");
-    //    return RedirectToAction("Index", "Admin");
-    //}
-
-    public IActionResult Acceuil()
+     public IActionResult Acceuil()
     {
+        ViewBag.UserId = TempData["UserId"] as string;
         return View();
     }
 
     public IActionResult Login(string email)
     {
-         string? userId = client.Authenticate(email);
-         Console.WriteLine("user:"+userId);
-
-         if (!string.IsNullOrEmpty(userId))
-            {
-                HttpContext.Session.SetString("Id", userId);
-                return RedirectToAction("Acceuil", "Client"); 
-            }
-            else
-            {
-                return RedirectToAction("Acceuil", "Client"); 
-            }
+        string? userId = client.Authenticate(email);
+        if (!string.IsNullOrEmpty(userId))
+        {
+            TempData["UserId"] = userId; 
+            return RedirectToAction("Acceuil", "Client");
+        }
+        else
+        {
+            return RedirectToAction("Acceuil", "Client");
+        }
     }
+
+
 
     public IActionResult Index()
     {

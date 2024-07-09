@@ -43,12 +43,14 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
+
 var app = builder.Build();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseSession();
 app.UseRouting();
 app.UseAuthorization();
+app.UseWebSockets();
 
 app.MapControllerRoute(
     name: "default",

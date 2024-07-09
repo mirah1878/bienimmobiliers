@@ -1,3 +1,28 @@
 @{
     Layout = "~/Views/Shared/Client.cshtml";
 }
+
+<h1>Bienvenue sur la page d'accueil</h1>
+
+<p>Bienvenue, utilisateur avec l'ID : <span id="userIdDisplay"></span></p>
+
+@section scripts {
+    <script>
+        // Assurez-vous que le script 'storageScript.js' est chargé
+        console.log('Script chargé');
+
+        // Récupérer le UserId depuis ViewBag et le stocker dans le localStorage
+        var userId = '@ViewBag.UserId';
+        if (userId) {
+            saveToLocalStorage('userId', userId); // Sauvegarder le userId dans localStorage
+            document.getElementById('userIdDisplay').textContent = userId;
+        }
+
+        // Vous pouvez également récupérer et utiliser userId déjà stocké dans localStorage
+        var storedUserId = getFromLocalStorage('userId');
+        if (storedUserId) {
+            console.log('UserId récupéré depuis localStorage : ' + storedUserId);
+            document.getElementById('userIdDisplay').textContent = storedUserId;
+        }
+    </script>
+}

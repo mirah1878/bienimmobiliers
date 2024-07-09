@@ -4,33 +4,70 @@
 
 <section class="section">
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Filtrer les loyers payés et à payer</h5>
 
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Filtre date</h5>
+                    <!-- Formulaire sans asp-controller et asp-action -->
+                    <form id="filterForm">
+                        <div class="col-md-6">
+                            <label for="date1" class="form-label">Date de début :</label>
+                            <input type="date" class="form-control" name="date1" id="date1" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="date2" class="form-label">Date de fin :</label>
+                            <input type="date" class="form-control" name="date2" id="date2" required>
+                        </div>
+                        
+                        <div class="col-12">
+                            <button class="btn btn-primary" type="submit">OK</button>
+                        </div>
+                    </form>
+                    <!-- Fin du formulaire -->
 
-              <!-- Browser Default Validation -->
-              <form asp-controller="Client" asp-action="VoirLoyerv">
-                <div class="col-md-6">
-                  <label for="validationDefault03" class="form-label">Date 1 :</label>
-                  <input type="date" class="form-control" name="date1" required>
                 </div>
-                <div class="col-md-6">
-                  <label for="validationDefault03" class="form-label">Date 2 :</label>
-                  <input type="date" class="form-control" name="date2" required>
-                </div>
-                
-                <div class="col-12">
-                  <button class="btn btn-primary" type="submit">ok</button>
-                </div>
-              </form>
-              <!-- End Browser Default Validation -->
-
             </div>
-          </div>
-
-        </div>
         </div>
     </div>
+    
+    <div id="resultat">
+        
+    </div>
+  
 </section>
+
+@section scripts {
+    <script>
+        $(document).on('submit', '#filterForm', function(event) {
+            event.preventDefault(); 
+            
+            var storedUserId = getFromLocalStorage('userId');
+            if (!storedUserId) {
+                console.error('UserId non trouvé dans localStorage.');
+                return;
+            }
+            
+            var formData = $(this).serialize(); 
+            formData += '&userId=' + storedUserId; 
+            
+            $.ajax({
+                url: '/Client/VoirLoyerv',
+                type: 'GET', 
+                data: formData,
+                beforeSend: function() {
+                   
+                    $('#resultat').html('<p>En cours...</p>');
+                },
+                success: function(response) {
+                  
+                    $('#resultat').html(response);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Erreur AJAX :', status, error); 
+                    $('#resultat').html('<p>Erreur lors du chargement des données.</p>');
+                }
+            });
+        });
+    </script>
+}

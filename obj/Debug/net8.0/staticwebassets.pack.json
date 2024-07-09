@@ -2149,6 +2149,10 @@
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
+      "Id": "D:\\S6\\evaluation\\Mvc\\wwwroot\\js\\storageScript.js",
+      "PackagePath": "staticwebassets\\js\\storageScript.js"
+    },
+    {
       "Id": "D:\\S6\\evaluation\\Mvc\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "FSxhE96+6PntkpqEdaytUAnEPiO1FMnLU2y6EzKG/js=",
+  "Hash": "n4L/8kZOF+0y2ULCgVvlnJIGLWp34ux2aqQyQNTh7CE=",
   "Source": "Mvc",
   "BasePath": "_content/Mvc",
   "Mode": "Default",
@@ -10237,6 +10237,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "D:\\S6\\evaluation\\Mvc\\wwwroot\\js\\storageScript.js",
+      "SourceId": "Mvc",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\S6\\evaluation\\Mvc\\wwwroot\\",
+      "BasePath": "_content/Mvc",
+      "RelativePath": "js/storageScript.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\storageScript.js"
     },
     {
       "Identity": "D:\\S6\\evaluation\\Mvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",

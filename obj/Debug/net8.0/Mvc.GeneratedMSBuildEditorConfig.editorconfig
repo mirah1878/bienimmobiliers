@@ -9,135 +9,139 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Mvc
 build_property.RootNamespace = Mvc
-build_property.ProjectDir = D:\S6\evaluation\Mvc\
+build_property.ProjectDir = d:\S6\evaluation\Mvc\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\S6\evaluation\Mvc
+build_property.MSBuildProjectDirectory = d:\S6\evaluation\Mvc
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/S6/evaluation/Mvc/Views/Admin/Acceuil.cshtml]
+[d:/S6/evaluation/Mvc/Views/Admin/Acceuil.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWNjZXVpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Admin/AjoutLocation.cshtml]
+[d:/S6/evaluation/Mvc/Views/Admin/AjoutLocation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWpvdXRMb2NhdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Admin/DetailLocation.cshtml]
+[d:/S6/evaluation/Mvc/Views/Admin/DetailLocation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGV0YWlsTG9jYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Admin/Index.cshtml]
+[d:/S6/evaluation/Mvc/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Admin/ListeChiffre.cshtml]
+[d:/S6/evaluation/Mvc/Views/Admin/ListeChiffre.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTGlzdGVDaGlmZnJlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Admin/ListeChiffrev.cshtml]
+[d:/S6/evaluation/Mvc/Views/Admin/ListeChiffrev.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTGlzdGVDaGlmZnJldi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Admin/ListeLocation.cshtml]
+[d:/S6/evaluation/Mvc/Views/Admin/ListeLocation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTGlzdGVMb2NhdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Admin/PageAjoutLocation.cshtml]
+[d:/S6/evaluation/Mvc/Views/Admin/PageAjoutLocation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGFnZUFqb3V0TG9jYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Admin/PageImportBien.cshtml]
+[d:/S6/evaluation/Mvc/Views/Admin/PageImportBien.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGFnZUltcG9ydEJpZW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Admin/PageImportLocation.cshtml]
+[d:/S6/evaluation/Mvc/Views/Admin/PageImportLocation.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGFnZUltcG9ydExvY2F0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Admin/PageImportType.cshtml]
+[d:/S6/evaluation/Mvc/Views/Admin/PageImportType.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGFnZUltcG9ydFR5cGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Admin/VoirDetail.cshtml]
+[d:/S6/evaluation/Mvc/Views/Admin/VoirDetail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cVm9pckRldGFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Client/Acceuil.cshtml]
+[d:/S6/evaluation/Mvc/Views/Client/Acceuil.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50XEFjY2V1aWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Client/Index.cshtml]
+[d:/S6/evaluation/Mvc/Views/Client/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Client/VoirLoyer.cshtml]
+[d:/S6/evaluation/Mvc/Views/Client/VoirLoyer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50XFZvaXJMb3llci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Client/VoirLoyerv.cshtml]
+[d:/S6/evaluation/Mvc/Views/Client/VoirLoyerv.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50XFZvaXJMb3llcnYuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Home/Index.cshtml]
+[d:/S6/evaluation/Mvc/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Proprietaire/Acceuil.cshtml]
+[d:/S6/evaluation/Mvc/Views/Proprietaire/Acceuil.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvcHJpZXRhaXJlXEFjY2V1aWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Proprietaire/Index.cshtml]
+[d:/S6/evaluation/Mvc/Views/Proprietaire/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvcHJpZXRhaXJlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Proprietaire/ListeBien.cshtml]
+[d:/S6/evaluation/Mvc/Views/Proprietaire/ListeBien.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvcHJpZXRhaXJlXExpc3RlQmllbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Proprietaire/ListeChiffre.cshtml]
+[d:/S6/evaluation/Mvc/Views/Proprietaire/ListeChiffre.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvcHJpZXRhaXJlXExpc3RlQ2hpZmZyZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Proprietaire/ListeChiffrev.cshtml]
+[d:/S6/evaluation/Mvc/Views/Proprietaire/ListeChiffrev.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvcHJpZXRhaXJlXExpc3RlQ2hpZmZyZXYuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Shared/Admin.cshtml]
+[d:/S6/evaluation/Mvc/Views/Shared/Admin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkbWluLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Shared/Client.cshtml]
+[d:/S6/evaluation/Mvc/Views/Shared/Client.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENsaWVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Shared/Error.cshtml]
+[d:/S6/evaluation/Mvc/Views/Shared/Coco.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvY28uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/S6/evaluation/Mvc/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Shared/Loginl.cshtml]
+[d:/S6/evaluation/Mvc/Views/Shared/Loginl.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExvZ2lubC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Shared/Proprietaire.cshtml]
+[d:/S6/evaluation/Mvc/Views/Shared/Proprietaire.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFByb3ByaWV0YWlyZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Shared/_ValidationScriptsPartial.cshtml]
+[d:/S6/evaluation/Mvc/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/_ViewImports.cshtml]
+[d:/S6/evaluation/Mvc/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/_ViewStart.cshtml]
+[d:/S6/evaluation/Mvc/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/S6/evaluation/Mvc/Views/Shared/_Layout.cshtml]
+[d:/S6/evaluation/Mvc/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-djzr31a0jt
